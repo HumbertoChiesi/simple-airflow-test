@@ -16,10 +16,10 @@ def download_data():
     month = now.month
     day = now.day
 
-    data_dir = f'/airflow/data/data/{year}/{month}/{day}'
+    data_dir = f'/opt/airflow/data/data/{year}/{month}/{day}'
     os.makedirs(data_dir, exist_ok=True)
 
-    cleaned_data.to_csv(f'{data_dir}/data.csv', index=False)
+    data.to_csv(f'{data_dir}/data.csv', index=False)
 
 dag = DAG(
     'exchange_rate_etl',
