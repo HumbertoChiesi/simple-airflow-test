@@ -1,0 +1,16 @@
+version: '3'
+
+
+
+services:
+  airflow:
+    build:
+      context: ./airflow
+      dockerfile: Dockerfile
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+    ports:
+      - "8080:8080"
+    command: airflow standalone
